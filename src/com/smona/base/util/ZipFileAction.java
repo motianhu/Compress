@@ -81,7 +81,7 @@ public class ZipFileAction {
                 String fileName = zipEntry.getName();
                 println("unZip: " + fileName);
                 File f = null;
-                if (fileName.endsWith(".xml") || fileName.endsWith(".property")) {
+                if (fileName.endsWith(Constants.XML) || fileName.endsWith(Constants.PROPERTIES)) {
                     f = new File(xmlOutput + File.separator
                             + zipEntry.getName());
                 } else {
