@@ -39,6 +39,8 @@ public class MoodFileArray extends FileArray {
         Logger.printDetail("addFile : " + name);
         if (name.endsWith(Constants.XML)) {
             addXml(file, name);
+        } else if (name.endsWith(Constants.PROPERTIES)) {
+            addProperties(file, name);
         } else {
             addJpg(file, name);
         }
@@ -55,80 +57,91 @@ public class MoodFileArray extends FileArray {
         item.source_xml = file;
     }
 
+    private void addProperties(File file, String name) {
+        int endIndex = name.indexOf(Constants.PROPERTIES);
+        String fileName = name.substring(0, endIndex);
+        MoodFileItem item = (MoodFileItem) mItemMap.get(fileName);
+        if (item == null) {
+            item = new MoodFileItem();
+            mItemMap.put(fileName, item);
+        }
+        item.source_properties = file;
+    }
+
     private void addJpg(File file, String name) {
         if (name.contains(fileSuffix[10])) {
             MoodFileItem item = addFileItem(name, fileSuffix[10]);
-            if(name.contains(Constants.FONT + fileSuffix[10])) {
+            if (name.contains(Constants.FONT + fileSuffix[10])) {
                 item.source_thumbnail_font = file;
             } else {
                 item.source_thumbnail = file;
             }
         } else if (name.contains(fileSuffix[9])) {
             MoodFileItem item = addFileItem(name, fileSuffix[9]);
-            if(name.contains(Constants.FONT + fileSuffix[9])) {
+            if (name.contains(Constants.FONT + fileSuffix[9])) {
                 item.source_106x190_font = file;
             } else {
                 item.source_106x190 = file;
             }
         } else if (name.contains(fileSuffix[8])) {
             MoodFileItem item = addFileItem(name, fileSuffix[8]);
-            if(name.contains(Constants.FONT + fileSuffix[8])) {
+            if (name.contains(Constants.FONT + fileSuffix[8])) {
                 item.source_160x285_font = file;
             } else {
                 item.source_160x285 = file;
             }
         } else if (name.contains(fileSuffix[7])) {
             MoodFileItem item = addFileItem(name, fileSuffix[7]);
-            if(name.contains(Constants.FONT + fileSuffix[7])) {
+            if (name.contains(Constants.FONT + fileSuffix[7])) {
                 item.source_180x320_font = file;
             } else {
                 item.source_180x320 = file;
             }
         } else if (name.contains(fileSuffix[6])) {
             MoodFileItem item = addFileItem(name, fileSuffix[6]);
-            if(name.contains(Constants.FONT + fileSuffix[6])) {
+            if (name.contains(Constants.FONT + fileSuffix[6])) {
                 item.source_240x427_font = file;
             } else {
                 item.source_240x427 = file;
             }
         } else if (name.contains(fileSuffix[5])) {
             MoodFileItem item = addFileItem(name, fileSuffix[5]);
-            if(!name.contains(Constants.FONT + fileSuffix[5])) {
+            if (!name.contains(Constants.FONT + fileSuffix[5])) {
                 item.source_270x480_font = file;
             } else {
                 item.source_270x480 = file;
             }
         } else if (name.contains(fileSuffix[4])) {
             MoodFileItem item = addFileItem(name, fileSuffix[4]);
-            if(name.contains(Constants.FONT + fileSuffix[4])) {
-                item.source_350x625_font = file;
+            if (name.contains(Constants.FONT + fileSuffix[4])) {
+                item.source_350x623_font = file;
             } else {
-                item.source_350x625 = file;
+                item.source_350x623 = file;
             }
         } else if (name.contains(fileSuffix[3])) {
             MoodFileItem item = addFileItem(name, fileSuffix[3]);
-            if(name.contains(Constants.FONT + fileSuffix[3])) {
+            if (name.contains(Constants.FONT + fileSuffix[3])) {
                 item.source_360x640_font = file;
             } else {
                 item.source_360x640 = file;
             }
         } else if (name.contains(fileSuffix[2])) {
             MoodFileItem item = addFileItem(name, fileSuffix[2]);
-            if(name.contains(Constants.FONT + fileSuffix[2])) {
+            if (name.contains(Constants.FONT + fileSuffix[2])) {
                 item.source_480x854_font = file;
             } else {
                 item.source_480x854 = file;
             }
         } else if (name.contains(fileSuffix[1])) {
             MoodFileItem item = addFileItem(name, fileSuffix[1]);
-            if(name.contains(Constants.FONT + fileSuffix[1])) {
+            if (name.contains(Constants.FONT + fileSuffix[1])) {
                 item.source_540x960_font = file;
             } else {
                 item.source_540x960 = file;
             }
         } else if (name.contains(fileSuffix[0])) {
             MoodFileItem item = addFileItem(name, fileSuffix[0]);
-            if(name.contains(Constants.FONT + fileSuffix[0])) {
+            if (name.contains(Constants.FONT + fileSuffix[0])) {
                 item.source_720x1280_font = file;
             } else {
                 item.source_720x1280 = file;

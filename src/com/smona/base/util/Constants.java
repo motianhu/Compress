@@ -32,9 +32,10 @@ public class Constants {
     public static final String RELUTION_168x149 = "168x149";
     
     
-    //mood
+    //mood and newspic
     public static final String FONT = "_font";
     public static final String XML = ".xml";
+    public static final String PROPERTIES = ".properties";
     public static final String IMAGE_PATH = "/image";
     public static final String XML_PATH = "/xml";
     
@@ -43,8 +44,7 @@ public class Constants {
     public static final String RELUTION_540x960 = "540x960";
     public static final String RELUTION_480x854 = "480x854";
     public static final String RELUTION_360x640 = "360x640";
-    public static final String RELUTION_350x625 = "350x625";
-    public static final String RELUTION_320x480 = "320x480";
+    public static final String RELUTION_350x625 = "350x623";
     public static final String RELUTION_270x480 = "270x480";
     public static final String RELUTION_240x427 = "240x427";
     public static final String RELUTION_180x320 = "180x320";

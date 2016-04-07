@@ -12,7 +12,7 @@ public class MoodFileItem extends FileItem {
     public File source_540x960;
     public File source_480x854;
     public File source_360x640; // source up/impress down
-    public File source_350x625;
+    public File source_350x623;
     public File source_270x480;
     public File source_240x427;
     public File source_180x320;
@@ -25,7 +25,7 @@ public class MoodFileItem extends FileItem {
     public File source_540x960_font;
     public File source_480x854_font;
     public File source_360x640_font; // source up/impress down
-    public File source_350x625_font;
+    public File source_350x623_font;
     public File source_270x480_font;
     public File source_240x427_font;
     public File source_180x320_font;
@@ -34,6 +34,7 @@ public class MoodFileItem extends FileItem {
     public File source_thumbnail_font;
 
     // xml
+    public File source_properties;
     public File source_xml;
     public File source_font;
 
@@ -43,9 +44,12 @@ public class MoodFileItem extends FileItem {
 
         // font
         copyFont(path);
-        
-        //copy
+
+        // xml
         copyXml(path);
+
+        // properties
+        copyProperties(path);
     }
 
     private void copySource(String path) {
@@ -69,7 +73,7 @@ public class MoodFileItem extends FileItem {
         copyTemp(source_360x640, name, reluPath);
 
         reluPath = path + "/" + Constants.RELUTION_350x625;
-        copyTemp(source_350x625, name, reluPath);
+        copyTemp(source_350x623, name, reluPath);
 
         reluPath = path + "/" + Constants.RELUTION_270x480;
         copyTemp(source_270x480, name, reluPath);
@@ -112,7 +116,7 @@ public class MoodFileItem extends FileItem {
         copyTemp(source_360x640_font, name, reluPath);
 
         reluPath = path + "/" + Constants.RELUTION_350x625;
-        copyTemp(source_350x625_font, name, reluPath);
+        copyTemp(source_350x623_font, name, reluPath);
 
         reluPath = path + "/" + Constants.RELUTION_270x480;
         copyTemp(source_270x480_font, name, reluPath);
@@ -133,11 +137,18 @@ public class MoodFileItem extends FileItem {
         reluPath = path + "/" + "thumbnail";
         copyTemp(source_thumbnail_font, name, reluPath);
     }
-    
+
     private void copyXml(String path) {
         String name = source_xml.getName();
         FileOperator.fileChannelCopy(source_xml, path + "/" + name);
+    }
 
+    private void copyProperties(String path) {
+        if (source_properties == null) {
+            return;
+        }
+        String name = source_properties.getName();
+        FileOperator.fileChannelCopy(source_properties, path + "/" + name);
     }
 
     private void copyTemp(File picName, String name, String reluPath) {
@@ -148,7 +159,7 @@ public class MoodFileItem extends FileItem {
 
     public void println() {
         printlnSource();
-        
+
         printlnFont();
     }
 
@@ -159,7 +170,7 @@ public class MoodFileItem extends FileItem {
         println(source_540x960);
         println(source_480x854);
         println(source_360x640);
-        println(source_350x625);
+        println(source_350x623);
         println(source_270x480);
         println(source_240x427);
         println(source_180x320);
@@ -175,7 +186,7 @@ public class MoodFileItem extends FileItem {
         println(source_540x960_font);
         println(source_480x854_font);
         println(source_360x640_font);
-        println(source_350x625_font);
+        println(source_350x623_font);
         println(source_270x480_font);
         println(source_240x427_font);
         println(source_180x320_font);
