@@ -106,7 +106,7 @@ public class MoodFileArray extends FileArray {
             }
         } else if (name.contains(fileSuffix[5])) {
             MoodFileItem item = addFileItem(name, fileSuffix[5]);
-            if (!name.contains(Constants.FONT + fileSuffix[5])) {
+            if (name.contains(Constants.FONT + fileSuffix[5])) {
                 item.source_270x480_font = file;
             } else {
                 item.source_270x480 = file;
